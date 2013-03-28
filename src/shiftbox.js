@@ -21,8 +21,7 @@
 	
 	xtag.register('x-shiftbox', {
 		lifecycle: {
-			created: function(){
-				console.log("created", this, this.direction, this.shift);
+			created: function(){				
 				setStyles(this, this.direction, this.shift);
 			}
 		},		
