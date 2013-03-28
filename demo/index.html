@@ -2,23 +2,85 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Stub Demo - X-Tag</title>
-    <link rel="stylesheet" type="text/css" href="x-tag-components.css"/>
-	<link rel="stylesheet" type="text/css" href="../src/main.css"/>
+  <meta charset="utf-8" />
+  <title>Shiftbox - X-Tag</title>
 
-    <script type="text/javascript" src="x-tag-components.js"></script> 
-    <script type="text/javascript" src="../src/main.js"></script>      
+  <link rel="stylesheet" type="text/css" href="x-tag-components.css"/>
+	<link rel="stylesheet" type="text/css" href="../src/shiftbox.css"/>
+
+  <script type="text/javascript" src="x-tag-components.js"></script>
+  <script type="text/javascript" src="../src/shiftbox.js"></script>
 	<style>
-
+      #shiftbox_demo {
+        height: 300px;
+        width: 220px;
+        border: solid 2px black;
+        background-color: #333;
+        padding: 8px;
+      }
+      #shiftbox_demo > x-content {
+        padding: 8px;
+        border: solid 1px red;        
+        background-color: white;
+        border-radius: 10px 0 0 10px;
+      }
+      #shiftbox_demo > x-subcontent {
+        
+      }
 	</style>
 </head>
 
 <body>
 
-	<h2>Create a Demo</h2>
+	<h2>Shiftbox Demo</h2>
 
+    <button>Toggle Shift Box</button>
+    <x-shiftbox id="shiftbox_demo">
+      <x-content>
+        <h1>Content</h1>
+        <ul>
+          <li>first</li>
+          <li>second</li>
+          <li>third hello hello hello</li>
+        </ul>
+      </x-content>
+      <x-subcontent>
+        <h1>Sub Content</h1>
+        <ul>
+          <li>News</li>
+          <li>Blog</li>
+          <li>About</li>
+        </ul>
+      </x-subcontent>
+    </x-shiftbox>
 
 </body>
+
+<script type="text/javascript">
+
+  document.addEventListener('DOMComponentsLoaded', function(){
+    var shiftbox = document.getElementById('shiftbox_demo');
+    document.querySelector('button').addEventListener('click', function(e){
+      if (shiftbox.shift == 190) {        
+        shiftbox.shift = 0;
+      } 
+      else {        
+        shiftbox.shift = 190;
+      }
+    });
+
+    xtag.addEvent(shiftbox, 'opened', function(){
+      console.log("Shiftbox opened");
+    });
+
+    xtag.addEvent(shiftbox, 'closed', function(){
+      console.log("Shiftbox closed");
+    });
+
+  });
+
+  
+  
+</script>
 
 </html>

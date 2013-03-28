@@ -1,17 +1,44 @@
-# About
+# About 
 
-This repo is an X-Tag custom web-component stub that can be used as a starting point when building new elements.  It provides that basic tools and grunt tasks to get started.
+A container element that allows you to slide aside a main ```<x-content>``` element to reveal secondary content such as menus, widgets, or settings lists underneath.
 
-# Dev Setup
+# Syntax
 
-```
-Fork this repo, rename it, then clone it.
-
-$ npm install	// install bower tasks
-$ bower install	// install components
-$ grunt build   // build the dependencies
 
 ```
+<x-shiftbox>
+  <x-content>
+    Content
+  </x-content>
+  <x-subcontent>
+    Settings    
+  </x-subcontent>
+</x-shiftbox>
+
+```
+
+
+## Usage
+
+```
+var shiftbox = document.querySelector('x-shiftbox');
+// Close the drawer
+shiftbox.shift = 0;
+
+// Open it 190 pixels  
+shiftbox.shift = 190;
+
+xtag.addEvent(shiftbox, 'opened', function(){
+  // box has opened, do something!
+});
+
+xtag.addEvent(shiftbox, 'closed', function(){
+  // box closed, cleanup.
+});
+
+```
+
+
 
 # Create X-Tag Components
 
@@ -20,5 +47,4 @@ $ grunt build   // build the dependencies
 # Use X-Tag Components
 
 [Using X-Tag components in your applications](https://github.com/x-tag/core/wiki/Using-X-Tag-Components-in-your-application)
-
 
