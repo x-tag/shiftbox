@@ -29,7 +29,7 @@
 		events:{
 			'transitionend': function(e){
 				if (e.target == xtag.queryChildren(this, 'x-content')[0]){
-					if (this.shift == 0){
+					if (this.shift === 0){
 						xtag.fireEvent(this, 'closed');
 					}
 					else {
