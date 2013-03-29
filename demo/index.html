@@ -18,15 +18,12 @@
         background-color: #333;
         padding: 8px;
       }
-      #shiftbox_demo > x-content {
+      #shiftbox_demo > section {
         padding: 8px;
         border: solid 1px red;        
         background-color: white;
         border-radius: 10px 0 0 10px;
-      }
-      #shiftbox_demo > x-subcontent {
-        
-      }
+      }      
 	</style>
 </head>
 
@@ -34,9 +31,9 @@
 
 	<h2>Shiftbox Demo</h2>
 
-    <button>Toggle Shift Box</button>
+    <button data-shift>Shift</button>   
     <x-shiftbox id="shiftbox_demo">
-      <x-content>
+      <section>
         <h1>Content</h1>
         <ul>
           <li>first</li>
@@ -44,14 +41,14 @@
           <li>third hello hello hello</li>
         </ul>
       </x-content>
-      <x-subcontent>
+      <aside>
         <h1>Sub Content</h1>
         <ul>
           <li>News</li>
           <li>Blog</li>
           <li>About</li>
         </ul>
-      </x-subcontent>
+      </aside>
     </x-shiftbox>
 
 </body>
@@ -60,13 +57,28 @@
 
   document.addEventListener('DOMComponentsLoaded', function(){
     var shiftbox = document.getElementById('shiftbox_demo');
-    document.querySelector('button').addEventListener('click', function(e){
-      if (shiftbox.shift == 190) {        
-        shiftbox.shift = 0;
+
+    var states = [
+      'right',
+      'down',
+      'left',
+      'up',
+      'downright',
+      'downleft',
+      'upleft',
+      'upright'
+    ];
+
+    var last = null;
+    document.querySelector('button').addEventListener('click', function(e){      
+      if (shiftbox.hasAttribute('open')){
+        shiftbox.removeAttribute('open');
+        last = shiftbox.shift;
       } 
-      else {        
-        shiftbox.shift = 190;
-      }
+      else {
+        shiftbox.setAttribute('open','');
+        shiftbox.shift = states[states.indexOf(last)+1] || 'right';
+      }      
     });
 
     xtag.addEvent(shiftbox, 'opened', function(){
