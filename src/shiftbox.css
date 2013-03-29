@@ -9,15 +9,22 @@ x-shiftbox > * {
 	z-index: 0;
 }
 
+x-shiftbox > aside {
+	box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
 x-shiftbox > section {
 	display: block;
 	position: absolute;	
 	top: 0;
-	bottom: 0;
-	right: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+	margin: 0;
 	box-sizing: border-box;
 	-o-box-sizing: border-box;
 	-ms-box-sizing: border-box;
@@ -28,13 +35,17 @@ x-shiftbox > section {
 	-ms-transition: 0.3s ease-out;
 	-o-transition: 0.3s ease-out;
 	transition: 0.3s ease-out;
-	-webkit-transition-property: top, bottom, left, right, -webkit-transform;
-	-moz-transition-property: top, bottom, left, right, -moz-transform;
-	-ms-transition-property: top, bottom, left, right, -ms-transform;
-	-o-transition-property: top, bottom, left, right, -o-transform;
-	transition-property: top, bottom, left, right, transform;
+	-webkit-transition-property: top, bottom, left, right, -webkit-transform, margin;
+	-moz-transition-property: top, bottom, left, right, -moz-transform, margin;
+	-ms-transition-property: top, bottom, left, right, -ms-transform, margin;
+	-o-transition-property: top, bottom, left, right, -o-transform, margin;
+	transition-property: top, bottom, left, right, transform, margin;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0,0);
 	z-index: 1;
-	
 }
 
 x-shiftbox[shift="up"][open] > section {
@@ -42,8 +53,9 @@ x-shiftbox[shift="up"][open] > section {
 	-moz-transform: translate(0, -100%);
 	-ms-transform: translate(0, -100%);
 	-o-transform: translate(0, -100%);
+	transform: translate(0,-100%);
 	top: 35px;
-	bottom: auto;
+	margin-left: 0;
 }
 
 x-shiftbox[shift="right"][open] > section {
@@ -51,8 +63,8 @@ x-shiftbox[shift="right"][open] > section {
 	-moz-transform: translate(100%, 0);
 	-ms-transform: translate(100%, 0);
 	-o-transform: translate(100%, 0);
-	right: 35px;
-	left: auto;
+	transform: translate(100%,0);
+	margin-left: -35px;
 }
 
 x-shiftbox[shift="down"][open] > section {
@@ -60,8 +72,9 @@ x-shiftbox[shift="down"][open] > section {
 	-moz-transform: translate(0, 100%);
 	-ms-transform: translate(0, 100%);
 	-o-transform: translate(0, 100%);
-	top: auto;
-	bottom: 35px;
+	transform: translate(0,100%);
+	margin-top: -35px;
+	margin-left: 0;
 }
 
 x-shiftbox[shift="left"][open] > section {
@@ -69,82 +82,60 @@ x-shiftbox[shift="left"][open] > section {
 	-moz-transform: translate(-100%, 0);
 	-ms-transform: translate(-100%, 0);
 	-o-transform: translate(-100%, 0);
-	right: auto;
+	transform: translate(-100%,0);
 	left: 35px;
+	margin-left: 0;
 }
 
 x-shiftbox[shift="upright"][open] > section {
-
-	top: 35px;
-	right: 35px;
-	bottom: auto;
-	left: auto;
+	top: -35px;
+	left: 35px;
+	margin-left: 0;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
 }
 
 x-shiftbox[shift="downright"][open] > section {
-
-	top: auto;
-	right: 35px;
-	bottom: 35px;
-	left: auto;
+	top: 35px;
+	left: 35px;
+	margin-left: 0;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
 }
 
 x-shiftbox[shift="downleft"][open] > section {
-
-	top: auto;
-	right: auto;
-	bottom: 35px;
-	left: 35px;
+	top: 35px;
+	left: -35px;
+	margin-left: 0;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
 }
 
 x-shiftbox[shift="upleft"][open] > section {	
-	top: 35px;
-	right: auto;
-	bottom: auto;
-	left: 35px;
+	top: -35px;
+	left: -35px;
+	margin-left: 0;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
 }
 
-
-x-shiftbox[shift="upright"] > section {
-
-	top: 35px;
-	right: 35px;
-	bottom: auto;
-	left: auto;
-}
-
-x-shiftbox[shift="downright"] > section {
-
-	top: auto;
-	right: 0;
-	bottom: 0;
-	left: auto;
-}
-
-x-shiftbox[shift="downleft"] > section {
-
-	top: auto;
-	right: auto;
-	bottom: 0;
-	left: 0;
-}
-
-x-shiftbox[shift="up"] > section {
-	top: 0;
-	bottom: auto;
-}
-
-x-shiftbox[shift="right"] > section {
-	right: 0;
-	left: auto;
-}
-
-x-shiftbox[shift="down"] > section {	
-	top: auto;
-	bottom: 0;
-}
-
-x-shiftbox[shift="left"] > section {
-	right: auto;
-	left: 0;
+x-shiftbox[open] > section {
+	-webkit-transform: translate(100%, 0);
+	-moz-transform: translate(100%, 0);
+	-ms-transform: translate(100%, 0);
+	-o-transform: translate(100%, 0);
+	transform: translate(100%,0);
+	margin-left: -35px;
 }

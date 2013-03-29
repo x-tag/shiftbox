@@ -22,7 +22,6 @@
         padding: 8px;
         border: solid 1px red;        
         background-color: white;
-        border-radius: 10px 0 0 10px;
       }      
 	</style>
 </head>
@@ -31,7 +30,8 @@
 
 	<h2>Shiftbox Demo</h2>
 
-    <button data-shift>Shift</button>   
+    <button data-shift>Shift</button>
+    <span id="label"></span>
     <x-shiftbox id="shiftbox_demo">
       <section>
         <h1>Content</h1>
@@ -78,7 +78,9 @@
       else {
         shiftbox.setAttribute('open','');
         shiftbox.shift = states[states.indexOf(last)+1] || 'right';
-      }      
+      } 
+      document.getElementById('label').innerHTML = 'shift=' + shiftbox.shift + 
+      ' open=' + (shiftbox.getAttribute('open') == '' ? 'true' : 'false');
     });
 
     xtag.addEvent(shiftbox, 'opened', function(){
