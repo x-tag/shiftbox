@@ -1,10 +1,10 @@
 
 (function(){
-	
-	xtag.register('x-shiftbox', {			
+
+	xtag.register('x-shiftbox', {
 		events:{
 			'transitionend': function(e){
-				if (e.target == xtag.queryChildren(this, 'x-content')[0]){					
+				if (e.target == xtag.queryChildren(this, 'x-content')[0]){
 					if (this.shift.length){
 						xtag.fireEvent(this, 'closed');
 					}
@@ -16,13 +16,21 @@
 		},
 		accessors: {
 			'shift': {
-				get: function(){					
+				attribute: {},
+				get: function(){
 					return this.getAttribute('shift') || '';
-				},
-				'set:attribute(shift)': function(shift){
+				}
+			}
+		},
+		methods: {
+			'toggle': function(){
+				if (this.hasAttribute('open')){
+					this.removeAttribute('open');
+				} else {
+					this.setAttribute('open','');
 				}
 			}
 		}
 	});
-	
+
 })();
