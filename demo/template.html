@@ -5,8 +5,7 @@
 
 {% block demoContent %}
 
-    <p>An <code class="prettyprint">&lt;x-shiftbox&gt;</code> is similar to hamburger panel except it can shift in any direction.</p>
-    <p>The shiftbox requires a section element and an aside element.  The section sits on top of the aside element and is shifted to the side when the "open" attribute is applied or the "toggle()" method is called.  By setting the shift attribute you can control which direction the section element moves to.</p>
+    <p><code class="prettyprint">&lt;x-shiftbox&gt;</code> uses a section element as the main content and an aside element for the content underneath. By default it shifts the section element to right like a hamburger menu. The direction of the shift is configurable by setting the "shift" attribute to one of the following values <code class="prettyprint">right, left, up, down, downright, upright, downleft, upleft.</code></p>
     <section class="demo-wrap">
         <header><h2>Basic usage</h2></header>
         <div class="two-up">
