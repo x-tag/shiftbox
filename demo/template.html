@@ -1,0 +1,75 @@
+{% extends "component-demo-base.html" %}
+
+{% set TAG_NAME="x-shiftbox" %}
+{% set COMPONENT_NAME="shiftbox" %}
+
+{% block demoContent %}
+
+    <p>An <code class="prettyprint">&lt;x-shiftbox&gt;</code> is similar to hamburger panel. </p>
+    <p>However, the main difference is that <code class="prettyprint">&lt;x-shiftbox&gt;</code> treats the slides as a coherent filmstrip instead of as independent cards, so transitioning from one slide to another displays all slides in between during the animation.
+    <section class="demo-wrap">
+        <header><h2>Basic usage</h2></header>
+        <div class="two-up">
+            <figure class="demo">
+                <x-shiftbox>
+                  <section>
+                    <h1>Content</h1>
+                    <ul>
+                      <li>first</li>
+                      <li>second</li>
+                      <li>third hello hello hello</li>
+                    </ul>
+                  </section>
+                  <aside>
+                    <h1>Sub Content</h1>
+                    <ul>
+                      <li>News</li>
+                      <li>Blog</li>
+                      <li>About</li>
+                    </ul>
+                  </aside>
+                </x-shiftbox>
+            </figure>
+        </div>
+        <div class="markup-wrap two-up">
+            <div class="controls">
+                <button class="btn btn-default toggle">Toggle</button>
+                <button class="btn btn-default direction" data-slide-target=6>Change Direction</button>
+            </div>
+            <h3>Markup</h3>
+            <pre class="prettyprint html">&lt;x-shiftbox&gt;<br/>
+&lt;section&gt;<br/>
+  &lt;h1&gt;Content&lt;/h1&gt;<br/>
+  &lt;ul&gt;<br/>
+    &lt;li&gt;first&lt;/li&gt;<br/>
+    &lt;li&gt;second&lt;/li&gt;<br/>
+    &lt;li&gt;third hello hello hello&lt;/li&gt;<br/>
+  &lt;/ul&gt;<br/>
+&lt;/section&gt;<br/>
+&lt;aside&gt;<br/>
+  &lt;h1&gt;Sub Content&lt;/h1&gt;<br/>
+  &lt;ul&gt;<br/>
+    &lt;li&gt;News&lt;/li&gt;<br/>
+    &lt;li&gt;Blog&lt;/li&gt;<br/>
+    &lt;li&gt;About&lt;/li&gt;<br/>
+  &lt;/ul&gt;<br/>
+&lt;/aside&gt;<br/>
+&lt;/x-shiftbox&gt;<br/></pre>
+            <h3>JavaScript</h3>
+            <pre class="prettyprint html">// assume shiftbox is already defined as their respective DOM elements<br/>
+<br/>
+// go back a slide<br/>
+shiftbox.addEventListener(&quot;closed&quot;, function(){<br/>
+   console.log('closed')<br/>
+});<br/>
+<br/>
+shiftbox.addEventListener(&quot;opened&quot;, function(){<br/>
+   console.log('opened')<br/>
+});<br/>
+<br/>
+shiftbox.toggle();<br/></pre>
+        </div>
+        <a href="#" class="top">Top</a>
+    </section>
+
+{% endblock %}

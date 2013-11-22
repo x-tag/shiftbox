@@ -16,5 +16,23 @@
 		"opera": 12,
 		"android": 2.1,
 		"ios": 4
-	}
+	},
+	"documentation": {
+		"description": "A hamburger style content panel.",
+    "attributes": {
+      "shift": "Direction to shift the main content. right, left, up, down, upright, downright, upleft, downleft",
+      "open": "Boolean attribute that opens the shiftbox"
+    },
+    "setters": {
+      "shift": "Setter for shift attribute"
+    },
+    "methods": {
+      "toggle": "Toggles the open attribute to open and close."
+    },
+    "events": {
+      "opened": "Fires after the shiftbox has opened.",
+      "closed": "Fires after the shiftbox has closed."
+
+    }
+  }
 }

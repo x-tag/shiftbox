@@ -1,4 +1,4 @@
-# About 
+# About
 
 A container element that allows you to slide aside a main ```<x-content>``` element to reveal secondary content such as menus, widgets, or settings lists underneath.
 
@@ -11,7 +11,7 @@ A container element that allows you to slide aside a main ```<x-content>``` elem
     Content
   </x-content>
   <x-subcontent>
-    Settings    
+    Settings
   </x-subcontent>
 </x-shiftbox>
 
@@ -22,11 +22,14 @@ A container element that allows you to slide aside a main ```<x-content>``` elem
 
 ```
 var shiftbox = document.querySelector('x-shiftbox');
-// Close the drawer
-shiftbox.shift = 0;
 
-// Open it 190 pixels  
-shiftbox.shift = 190;
+// Configure it to open it to the right
+shiftbox.shift = "right";
+shiftbox.toggle();  // open it
+
+// OR
+
+shiftbox.setAttribute('open','');
 
 xtag.addEvent(shiftbox, 'opened', function(){
   // box has opened, do something!

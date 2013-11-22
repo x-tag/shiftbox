@@ -8,9 +8,11 @@
   ],
   "main": [
     "src/shiftbox.js",
-    "src/shiftbox.css"
+    "src/shiftbox.css",
+    "src/shiftbox.styl"
   ],
   "dependencies": {
-    "x-tag-core": "*"
+    "x-tag-core": "*",
+    "brick-common": "*"
   }
 }
