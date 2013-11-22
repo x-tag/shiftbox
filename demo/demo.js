@@ -9,14 +9,14 @@ function updateDemoSect(demoSect){
 document.addEventListener('DOMComponentsLoaded', function(){
 
     var states = [
+      'right',
       'down',
       'left',
       'up',
       'downright',
       'downleft',
       'upleft',
-      'upright',
-      'right'
+      'upright'
     ],
     last = null;
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMComponentsLoaded', function(){
         var demoSect = DemoHelpers.controlButtonToDemoSect(this);
         var shiftbox = demoSect.querySelector("x-shiftbox");
         shiftbox.shift = states[states.indexOf(last)+1] || 'right';
-        shiftbox.toggle();
+        last = shiftbox.shift;
         updateDemoSect(demoSect);
     });
 

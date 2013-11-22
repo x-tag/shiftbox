@@ -5,8 +5,8 @@
 
 {% block demoContent %}
 
-    <p>An <code class="prettyprint">&lt;x-shiftbox&gt;</code> is similar to hamburger panel. </p>
-    <p>However, the main difference is that <code class="prettyprint">&lt;x-shiftbox&gt;</code> treats the slides as a coherent filmstrip instead of as independent cards, so transitioning from one slide to another displays all slides in between during the animation.
+    <p>An <code class="prettyprint">&lt;x-shiftbox&gt;</code> is similar to hamburger panel except it can shift in any direction.</p>
+    <p>The shiftbox requires a section element and an aside element.  The section sits on top of the aside element and is shifted to the side when the "open" attribute is applied or the "toggle()" method is called.  By setting the shift attribute you can control which direction the section element moves to.</p>
     <section class="demo-wrap">
         <header><h2>Basic usage</h2></header>
         <div class="two-up">
@@ -57,16 +57,13 @@
 &lt;/x-shiftbox&gt;<br/></pre>
             <h3>JavaScript</h3>
             <pre class="prettyprint html">// assume shiftbox is already defined as their respective DOM elements<br/>
-<br/>
 // go back a slide<br/>
 shiftbox.addEventListener(&quot;closed&quot;, function(){<br/>
    console.log('closed')<br/>
 });<br/>
-<br/>
 shiftbox.addEventListener(&quot;opened&quot;, function(){<br/>
    console.log('opened')<br/>
 });<br/>
-<br/>
 shiftbox.toggle();<br/></pre>
         </div>
         <a href="#" class="top">Top</a>
