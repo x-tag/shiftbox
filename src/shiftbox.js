@@ -40,7 +40,6 @@
 		},
 		methods: {
 			'toggle': function(){
-				console.log(xtag.query(this, 'aside')[0]);
 				if (this.hasAttribute('open')){
 					this.removeAttribute('open');
 				} else {
