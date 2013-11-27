@@ -1,18 +1,22 @@
 # About
 
-A container element that allows you to slide aside a main ```<x-content>``` element to reveal secondary content such as menus, widgets, or settings lists underneath.
+A container element that allows you to slide out a main ```<section>``` element to reveal secondary content such as menus, widgets, or settings lists contained in a ```<aside>``` element underneath.
 
 # Syntax
 
 
 ```
 <x-shiftbox>
-  <x-content>
+  <section>
     Content
-  </x-content>
-  <x-subcontent>
-    Settings
-  </x-subcontent>
+  </section>
+  <aside>
+    <menu>
+		<li>Menu Item 1</li>
+		<li>Menu Item 2</li>
+		<li>Menu Item 3</li>
+	</menu>
+  </aside>
 </x-shiftbox>
 
 ```
