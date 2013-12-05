@@ -1,0 +1,14 @@
+x-shiftbox{
+  height: 100%;
+  width: 100%;
+  background-color: #777;
+}
+x-shiftbox > section{
+  background-color: #fff;
+}
+
+x-shiftbox > aside{
+  height: 100%;
+  width: 100%;
+  color: white;
+}

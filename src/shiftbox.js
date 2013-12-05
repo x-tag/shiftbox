@@ -2,14 +2,23 @@
 (function(){
 
 	xtag.register('x-shiftbox', {
+		lifecycle: {
+			created: function(){
+				// flag to prevent opened and closed event from firing multiple times
+				// when transitionend is fired for each animated property
+				this.xtag.data.opened = this.hasAttribute('open');
+			}
+		},
 		events:{
 			'transitionend': function(e){
-				if (e.target == xtag.queryChildren(this, 'x-content')[0]){
-					if (this.shift.length){
-						xtag.fireEvent(this, 'closed');
-					}
-					else {
+				if (xtag.matchSelector(e.target,'x-shiftbox > section')){
+					if (this.hasAttribute('open') && !this.xtag.data.opened){
+						this.xtag.data.opened = true;
 						xtag.fireEvent(this, 'opened');
+					}
+					else if(!this.hasAttribute('open') && this.xtag.data.opened) {
+						this.xtag.data.opened = false;
+						xtag.fireEvent(this, 'closed');
 					}
 				}
 			}
@@ -19,6 +28,13 @@
 				attribute: {},
 				get: function(){
 					return this.getAttribute('shift') || '';
+				}
+			},
+			'open': {
+				attribute: {},
+				set: function(){
+					var asideWidth = getComputedStyle(xtag.query(this, 'aside')[0]).width;
+					this.setAttribute('data-asideSize', asideWidth);
 				}
 			}
 		},

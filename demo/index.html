@@ -20,15 +20,16 @@
       }
       #shiftbox_demo > section {
         padding: 8px;
-        border: solid 1px red;        
+        border: solid 1px red;
         background-color: white;
-      }      
+      }
 	</style>
 </head>
 
 <body>
 
 	<h2>Shiftbox Demo</h2>
+  <p>Shiftbox uses a section element as the main content and an aside element for the content underneath. By default it shifts the section element to right like a hamburger menu.  The direction of the shift is configurable by setting the "shift" attribute to one of the following values  right, left, up, down, downright, upright, downleft, upleft.</p>
 
     <button data-shift>Shift</button>
     <span id="label"></span>
@@ -70,16 +71,16 @@
     ];
 
     var last = null;
-    document.querySelector('button').addEventListener('click', function(e){      
+    document.querySelector('button').addEventListener('click', function(e){
       if (shiftbox.hasAttribute('open')){
         shiftbox.removeAttribute('open');
         last = shiftbox.shift;
-      } 
+      }
       else {
         shiftbox.setAttribute('open','');
         shiftbox.shift = states[states.indexOf(last)+1] || 'right';
-      } 
-      document.getElementById('label').innerHTML = 'shift=' + shiftbox.shift + 
+      }
+      document.getElementById('label').innerHTML = 'shift=' + shiftbox.shift +
       ' open=' + (shiftbox.getAttribute('open') == '' ? 'true' : 'false');
     });
 
@@ -93,8 +94,8 @@
 
   });
 
-  
-  
+
+
 </script>
 
 </html>
