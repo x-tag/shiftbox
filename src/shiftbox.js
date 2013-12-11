@@ -6,22 +6,24 @@
 			created: function(){
 				// flag to prevent opened and closed event from firing multiple times
 				// when transitionend is fired for each animated property
-				this.xtag.data.opened = this.hasAttribute('open');
+				this.xtag.opened = this.hasAttribute('open');
 			}
 		},
 		events:{
-			'transitionend': function(e){
-				if (xtag.matchSelector(e.target,'x-shiftbox > section')){
-					if (this.hasAttribute('open') && !this.xtag.data.opened){
-						this.xtag.data.opened = true;
-						xtag.fireEvent(this, 'opened');
-					}
-					else if(!this.hasAttribute('open') && this.xtag.data.opened) {
-						this.xtag.data.opened = false;
-						xtag.fireEvent(this, 'closed');
-					}
-				}
-			}
+			'transitionend:delegate(x-shiftbox > section)': function(e){
+        var box = e.currentTarget;
+        if (box.hasAttribute('open') && !box.xtag.opened){
+          box.xtag.opened = true;
+          xtag.fireEvent(box, 'opened');
+        }
+        else if(!box.hasAttribute('open') && box.xtag.opened) {
+          box.xtag.opened = false;
+          xtag.fireEvent(box, 'closed');
+        }
+			},
+      'tap:delegate(x-shiftbox[open] > section)': function(e){
+        e.currentTarget.open = false;
+      }
 		},
 		accessors: {
 			'shift': {
@@ -31,20 +33,12 @@
 				}
 			},
 			'open': {
-				attribute: {},
-				set: function(){
-					var asideWidth = getComputedStyle(xtag.query(this, 'aside')[0]).width;
-					this.setAttribute('data-asideSize', asideWidth);
-				}
+				attribute: { boolean: true }
 			}
 		},
 		methods: {
 			'toggle': function(){
-				if (this.hasAttribute('open')){
-					this.removeAttribute('open');
-				} else {
-					this.setAttribute('open','');
-				}
+				this.open = !this.hasAttribute('open');
 			}
 		}
 	});

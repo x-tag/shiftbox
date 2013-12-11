@@ -2233,6 +2233,7 @@ if (document.readyState === 'complete' || scope.flags.eager) {
       };
       var stack = xtag.applyPseudos(event.chain, fn, event._pseudos, event);
       event.stack = function(e){
+        e.currentTarget = e.currentTarget || event.element;
         var t = e.touches, tt = e.targetTouches;
         var detail = e.detail || {};
         if (!detail.__stack__) return stack.apply(this, toArray(arguments));
@@ -2274,6 +2275,7 @@ if (document.readyState === 'complete' || scope.flags.eager) {
 
     addEvent: function (element, type, fn, capture) {
       var event = (typeof fn == 'function') ? xtag.parseEvent(type, fn) : fn;
+      event.element = element;
       event._pseudos.forEach(function(obj){
         obj.onAdd.call(element, obj);
       });
