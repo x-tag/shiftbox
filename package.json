@@ -1,6 +1,6 @@
 {
   "name": "Shiftbox",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "dependencies": {},
   "devDependencies": {
     "bower": "~1.2.0",
