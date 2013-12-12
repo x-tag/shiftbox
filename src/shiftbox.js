@@ -18,6 +18,7 @@
         }
         else if(!box.hasAttribute('open') && box.xtag.opened) {
           box.xtag.opened = false;
+          e.currentTarget.removeAttribute('data-opened');
           xtag.fireEvent(box, 'closed');
         }
 			},
@@ -29,11 +30,16 @@
 			'shift': {
 				attribute: {},
 				get: function(){
-					return this.getAttribute('shift') || '';
+					return this.getAttribute('shift') || 'right';
 				}
 			},
 			'open': {
-				attribute: { boolean: true }
+				attribute: { boolean: true },
+        set: function(value){
+          if(value){
+            this.setAttribute('data-opened','');
+          }
+        }
 			}
 		},
 		methods: {
