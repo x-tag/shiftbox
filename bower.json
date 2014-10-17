@@ -1,7 +1,7 @@
 {
   "name": "Shiftbox",
   "description": "",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "keywords": [
     "element",
     "web-components",
@@ -9,8 +9,7 @@
   ],
   "main": [
     "src/shiftbox.js",
-    "src/shiftbox.css",
-    "src/shiftbox.styl"
+    "src/shiftbox.css"
   ],
   "dependencies": {
     "x-tag-core": "*"
