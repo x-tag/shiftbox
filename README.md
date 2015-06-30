@@ -12,10 +12,10 @@ A container element that allows you to slide out a main ```<section>``` element 
   </section>
   <aside>
     <menu>
-		<li>Menu Item 1</li>
-		<li>Menu Item 2</li>
-		<li>Menu Item 3</li>
-	</menu>
+      <li>Menu Item 1</li>
+      <li>Menu Item 2</li>
+      <li>Menu Item 3</li>
+    </menu>
   </aside>
 </x-shiftbox>
 
@@ -53,5 +53,5 @@ xtag.addEvent(shiftbox, 'closed', function(){
 
 # Use X-Tag Components
 
-[Using X-Tag components in your applications](https://github.com/x-tag/core/wiki/Using-X-Tag-Components-in-your-application)
+[Using X-Tag components in your applications](https://github.com/x-tag/core/wiki/Using-our-Web-Components-in-Your-Application)
 
